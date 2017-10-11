@@ -60,6 +60,15 @@ class Artist
     db.close()
   end
 
+  def find_albums
+    sql = "SELECT * FROM albums
+           WHERE artist_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    album_details = result.map{|albums| Album.new(albums)}
+    return album_details
+  end
+
 
 
 end
