@@ -28,4 +28,19 @@ class Album
     SqlRunner.run(sql, values)
   end
 
+  def delete()
+    sql = "DELETE FROM albums
+           WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.all()
+    sql = "SELECT * FROM albums"
+    values = []
+    discography = SqlRunner.run(sql, values)
+    albums_as_objects = discography.map{|album| Album.new(album)}
+    return albums_as_objects
+  end
+
 end
