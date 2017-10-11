@@ -28,6 +28,14 @@ album_2 = Album.new(
   }
 )
 
+album_3 = Album.new(
+  {
+    'artist_id' => artist_2.id,
+    'album_title' => 'Goodbye',
+    'genre' => 'Rock'
+  }
+)
+
 album_1.save()
 
 
